@@ -1,0 +1,5 @@
+{
+  "apiUrl": "http://api.openweathermap.org/data/2.5/weather?q=",
+  "apiKeyParam": "appId",
+  "serverPort" : 443
+}
