@@ -22,6 +22,37 @@ There should one for each environment.
     }
 
 
+### Prerequisites
+
+Install:
+* Make utility 
+* Go version 1.14 or better
+* dep tool
+
+
+### Running the Service
+
+* Build the service with:
+    
+
+    make build
+    
+
+* Get an API key from openweathermap.org and add it to environment:
+ 
+
+    export APL_KEY=0f92045f1aa7432099325ce2f3b022e1ef0
+    
+
+* Set the ENVIRONMENT to value (makefile run target defaults this to "dev")
+
+* Run the service:
+
+
+    make run
+    
+
+
 ### Sensitive or dynamic configuration
 This is information which cannot be stored in files in source control (API keys, passwords) and are passed as environment variables
 
