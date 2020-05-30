@@ -62,8 +62,54 @@ This is information which cannot be stored in files in source control (API keys,
 | API_KEY | key for openweathermap.org service|0f92045f1aa7432099325ce2f3b022e1ef0 |
 
 
+
+## Request
+
+If running on your machine, call the POST endpoint /weather with:
+
+    http://localhost:8080/weather
+
+
+### Request Body
+Array of strings, each of a city (case insenstive). For example:
+
+
+    [
+    "sydney",
+    "adelaide",
+    "Gotham City"
+    ]
+
+
+
+### Response
+
+The weather details for each city are returned
+
+
+    {
+       "reports":{
+          "Gotham City":{
+             "description":"not found"
+          },
+          "adelaide":{
+             "description":"clear sky",
+             "temperature":16,
+             "humidity":41
+          },
+          "sydney":{
+             "description":"few clouds",
+             "temperature":15,
+             "humidity":82
+          }
+       }
+    }
+
+
+
 ## Things To Improve
 
 * Needs Unit and Integration Tests
 * used dep for dependency management and not go modules
 * environment specific configuration, possibly dynamically determined
+* sample postman collections would be nice
