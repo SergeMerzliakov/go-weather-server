@@ -35,13 +35,13 @@ Install:
 * Build the service with:
     
 
-    make build
+        make build
     
 
 * Get an API key from openweathermap.org and add it to environment:
  
 
-    export APL_KEY=0f92045f1aa7432099325ce2f3b022e1ef0
+        export APL_KEY=0f92045f1aa7432099325ce2f3b022e1ef0
     
 
 * Set the ENVIRONMENT to value (makefile run target defaults this to "dev")
@@ -49,7 +49,7 @@ Install:
 * Run the service:
 
 
-    make run
+        make run
     
 
 
