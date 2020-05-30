@@ -23,6 +23,7 @@ import (
 	log "github.com/sirupsen/logrus"
 	"io/ioutil"
 	"net/http"
+	"strconv"
 )
 
 type WeatherService interface {
@@ -81,8 +82,6 @@ func (wc *SynchronousWeatherService) getSingleCityWeather(city string) (*CityRep
 		log.Warnf("City '%s' not found. No weather data returned.", city)
 		return &CityReport{
 			Description: "not found",
-			Temperature: 0.0,
-			Humidity:    0.0,
 		}, nil
 	}
 
@@ -116,9 +115,21 @@ func createReport(resp *http.Response) (*CityReport, error) {
 
 	report := &CityReport{
 		Description: weatherData["description"].(string),
-		Temperature: mainData["temp"].(float64),
+		Temperature: formatTemperature(mainData["temp"]), // convert from absolute temperature
 		Humidity:    mainData["humidity"].(float64),
 	}
 
 	return report, nil
+}
+
+// formatTemperature converts temperature from absolute temperature to degrees celsius
+// error handling needs to be better
+func formatTemperature(temp interface{}) float64 {
+	num := temp.(float64)
+	val, err := strconv.ParseFloat(fmt.Sprintf("%.0f", num-273.0), 64)
+	if err != nil {
+		log.Errorf("Error converting temperature string [%s]: %s", num, err)
+		return -1.0 // todo need to do something better than this!
+	}
+	return val
 }
