@@ -22,7 +22,7 @@ type WeatherReports struct{
 
 type CityReport struct {
 	Description string `json:"description"`
-	Temperature float64 `json:"temperature"`
-	Humidity    float64 `json:"humidity"`
+	Temperature float64 `json:"temperature,omitempty"`
+	Humidity    float64 `json:"humidity,omitempty"`
 }
 
