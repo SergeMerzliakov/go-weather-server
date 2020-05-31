@@ -1,5 +1,5 @@
 # go-weather-server
-Simple weather API in Go
+A simple weather API in Go. It is a proxy for a free weather service (openweathermap).
 
 # Configuration
 
@@ -38,6 +38,11 @@ Install:
         make build
     
 
+* Run the unit tests
+
+     
+        make test
+        
 * Get an API key from openweathermap.org and add it to environment:
  
 
@@ -46,7 +51,7 @@ Install:
 
 * Set the ENVIRONMENT to value (makefile run target defaults this to "dev")
 
-* Run the service:
+* Run the service locally:
 
 
         make run
@@ -109,7 +114,8 @@ The weather details for each city are returned
 
 ## Things To Improve
 
-* Needs Unit and Integration Tests
+* Needs more unit and integration Tests
 * used dep for dependency management and not go modules
 * environment specific configuration, possibly dynamically determined
+* API spec (such as OpenAPI or Swagger)
 * sample postman collections would be nice
