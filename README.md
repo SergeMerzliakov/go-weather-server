@@ -30,11 +30,26 @@ Install:
 * dep tool
 
 
-### Running the Service
+### Newbies: Setup GOPATH
+For those new to Go, Create the GOPATH
 
-* Build the service with:
+    mkdir $HOME/go
+    
+Then create
+   
+   $HOME/go/src/github.com/SergeMerzliakov
+   
+Clone this repo into this directory
+
+### Running the Service
+Everything should be reun from the repo directory:
+
+        cd $HOME/go/src/github.com/SergeMerzliakov/go-weather-server
+
+* Build the service with (use the dep command only for the first time):
     
 
+        dep ensure
         make build
     
 
