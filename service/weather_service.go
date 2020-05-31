@@ -30,14 +30,18 @@ type WeatherService interface {
 	GetCityWeather(cities []string) (*WeatherReports, error)
 }
 
+type HttpClient interface {
+	Do(req *http.Request) (*http.Response, error)
+}
+
 type SynchronousWeatherService struct {
 	config *config.ServerConfiguration
-	Client *http.Client
+	Client HttpClient
 }
 
 // CreateWeatherService is a factory method to create a weather service and will also be used
 // for testing by injecting mock configuration and http client
-func CreateWeatherService(config *config.ServerConfiguration, client *http.Client) WeatherService {
+func CreateWeatherService(config *config.ServerConfiguration, client HttpClient) WeatherService {
 	ws := &SynchronousWeatherService{config: config, Client: client}
 	return ws
 }
@@ -119,7 +123,7 @@ func createReport(resp *http.Response) (*CityReport, error) {
 		Humidity:    mainData["humidity"].(float64),
 	}
 
-	return report, nil
+ 	return report, nil
 }
 
 // formatTemperature converts temperature from absolute temperature to degrees celsius
@@ -128,7 +132,7 @@ func formatTemperature(temp interface{}) float64 {
 	num := temp.(float64)
 	val, err := strconv.ParseFloat(fmt.Sprintf("%.0f", num-273.0), 64)
 	if err != nil {
-		log.Errorf("Error converting temperature string [%s]: %s", num, err)
+		log.Errorf("Error converting temperature string [%f]: %s", num, err)
 		return -1.0 // todo need to do something better than this!
 	}
 	return val
