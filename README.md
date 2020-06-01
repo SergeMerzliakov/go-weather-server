@@ -3,7 +3,7 @@ A simple weather API in Go. It is a proxy for a free weather service (openweathe
 
 # Configuration
 
-There are two kinds of configuration - non-sensitive and sensitive
+There are two kinds of configuration - non-sensitive and sensitive.
 
 ### Non-Sensitive Configuration
 These are stored as Json files in the directory and include things which COULD be stored in source control or something similar
@@ -114,8 +114,8 @@ The weather details for each city are returned
 
 ## Things To Improve
 
-* Needs more unit and integration Tests
-* used dep for dependency management and not go modules
-* environment specific configuration, possibly dynamically determined
+* Needs more unit and integration tests
+* Used dep for dependency management, and not modules
+* Environment specific configuration, possibly dynamically determined
 * API spec (such as OpenAPI or Swagger)
-* sample postman collections would be nice
+* Sample Postman collections would be nice
