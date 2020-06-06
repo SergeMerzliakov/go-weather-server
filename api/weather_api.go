@@ -76,5 +76,6 @@ func (h *SynchronousWeatherEndpoint) WeatherEndpoint(w http.ResponseWriter, r *h
 	}
 
 	log.Info("Successfully retreived weather request for client")
+	w.Header().Set("Access-Control-Allow-Origin", "*")
 	_, _ = w.Write(data)
 }
