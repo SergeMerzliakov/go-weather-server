@@ -119,3 +119,4 @@ The weather details for each city are returned
 * Environment specific configuration, possibly dynamically determined
 * API spec (such as OpenAPI or Swagger)
 * Sample Postman collections would be nice
+* Dockerize
