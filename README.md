@@ -1,6 +1,8 @@
 # go-weather-server
 A simple weather API in Go. It is a proxy for a free weather service (openweathermap).
 
+It was written in 3 hours as a code test for a dveloper role, I did not end up applying for :-(
+
 # Configuration
 
 There are two kinds of configuration - non-sensitive and sensitive.
